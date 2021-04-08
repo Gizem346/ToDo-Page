@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import "./Login.css";
@@ -7,7 +6,6 @@ import "./Login.css";
 const Login = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  // const [user, setUser] = useState()
 
   const history = useHistory();
 
