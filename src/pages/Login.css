@@ -48,15 +48,17 @@
     background-color: #30cfd0;
     color: white;
     border-radius: 1vh;
-    
     font-size: 20px;
     transition-duration: 0.1;
     border:none;
     text-decoration: none;
     padding: 2vh 3vh;
     cursor: pointer;
+    margin-left: 210px;
+    margin-right: 210px;
 }
 .login-button:hover{
     background-color: white;
     color: #30cfd0;
+    border: 2px solid #30cfd0;
 }
