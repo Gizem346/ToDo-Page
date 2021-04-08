@@ -1,52 +1,50 @@
 import React, { useState } from "react";
 import "./Home.css";
-// import Login from "./Login";
 
 const Home = () => {
-  const [fields, setFields] = useState([{ value: null }]);
-  const [inputs, setInputs] = useState([{ value: null }]);
-
-  function handleChange(i, event) {
-    const values = [...fields];
-    values[i].value = event.target.value;
-    setFields(values);
-    // setInputs(values)
-    console.log("hi");
+  const [newFields, setNewFields] = useState([{title:"", fieldinputs:[{todo:""}]}])
+  const user = JSON.parse(localStorage.getItem("user"))
+  function handleChange(i,j, event) {
+    const values = newFields[i]
+    values.fieldinputs[j].todo = event.target.value;
+    newFields.splice(i,1,values)
+    setNewFields([...newFields])
   }
 
   function handleCreate() {
-    const values = [...fields];
-    values.push({ value: null });
-    setFields(values);
-    // console.log("hello")
+    const values = [...newFields, {title:"", fieldinputs:[{todo:""}]}];
+    setNewFields(values);
   }
 
   function handleDelete(i) {
-    const values = [...fields];
+    const values = [...newFields];
     values.splice(i, 1);
-    setFields(values);
+    setNewFields(values);
   }
 
-  function handleAdd() {
-    const values = [...inputs];
-    values.push({ value: null });
-    setInputs(values);
-    /**setfields yerine başka */
+  function handleAdd(i) {
+    const values = newFields[i]
+    values.fieldinputs.push({ todo: "" });
+    newFields.splice(i,1,values)
+    setNewFields([...newFields])
   }
 
-  function handleRemove(){
-      const values = [...inputs];
-      values.splice(1);
-      setInputs(values)
+  function handleRemove(i,j){
+      if (j>0){
+        const values = newFields[i]
+        values.fieldinputs.splice(j, 1);
+        newFields.splice(i,1,values)
+        setNewFields([...newFields])
+      }
   }
 
   return (
     <div className="home-container">
       <div className="left-container">
         <div className="profile-section">
-          <p className="avatar">GG</p>
+          <p className="avatar">{user.name[0]}{user.surname[0]}</p>
           <p className="username">
-            {localStorage.getItem("user", JSON.stringify())}
+            {user.name} {user.surname}
           </p>
         </div>
 
@@ -80,13 +78,13 @@ const Home = () => {
           <button
             className="create-btn"
             type="button"
-            onClick={() => handleCreate()}
+            onClick={handleCreate}
           >
             CREATE
           </button>
         </div>
         <div>
-          {fields.map((field, idx) => {
+          {newFields.map((field, idx) => {
             return (
               <div key={`${field}-${idx}`} className="text-container">
                 <div>
@@ -98,24 +96,25 @@ const Home = () => {
                     Delete
                   </button>
                 </div>
+                
                 <input
                   className="text-input"
                   type="text"
                   placeholder="Write a Title..."
                 />
-                {inputs.map((input, id) => {
+                <button className="add-btn" onClick={() => handleAdd(idx)}>+</button>
+                {field.fieldinputs.map((input, index) => {
                   return (
-                    <div key={`${field}-${idx}-${id}`}>
+                    <div key={`${field}-${idx}-${index}`}>
                       <input
                         className="text-input"
                         type="text"
-                        value={field.value || ""}
-                        onChange={(e) => handleChange(idx, e)}
+                        value={input.todo || ""}
+                        onChange={(e) => handleChange(idx,index, e)}
                       />
                       <div className="check-box">
                         <input type="checkbox" />
-                        <button onClick={() => handleRemove(id)}>X</button>
-                        <button onClick={() => handleAdd(id)}>Add</button>
+                        <button className="remove-btn" onClick={() => handleRemove(idx,index)}>X</button>
                       </div>
                     </div>
                   );
