@@ -1,0 +1,149 @@
+.home-container{
+    width: 100%;
+    display: flex;
+}
+
+input[type="checkbox"]{
+    zoom: 1.5;
+} 
+
+.left-container{
+    border: 1px solid red;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.categories{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    margin-left: 3vh;
+    padding: 3vh;
+    align-items: flex-start;
+    border: 1px solid yellow;
+}
+
+
+
+.avatar {
+    width: 5vh;
+    height: 5vh;
+    background-color: pink;
+    border-radius: 50%;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.username{
+    color: white;
+}
+.right-container{
+    border: 1px solid green;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.text-container{
+    border: 1px solid red;
+    background-color: #330867ee;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 15px 15px;
+    border-radius: 10px;
+    /* position: absolute;
+    top: 15vh; */
+}
+
+
+.text-input{
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    align-self: center;
+    border: 2px solid #30cfd0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+.delete-btn {
+    background-color: #30cfd0;
+    color: white;
+    border-radius: 10px;
+    justify-content: center;
+    align-items:center;
+    font-size: 14px;
+    transition-duration: 0.1;
+    border:none;
+    display: flex;
+    width: 7vh;
+    height: 3vh;
+    /* margin-top: 1vh; */
+    float: right;
+    cursor: pointer;
+}
+
+.add-btn{
+    background-color: #30cfd0;
+    color: white;
+    border-radius: 10px;
+    border:none;
+    display: flex;
+    width: 3vh;
+    height: 3vh;
+    justify-content: center;
+    align-items:center;
+    float: right;
+}
+
+.check-box{
+    display: flex;
+    border: 1px solid yellowgreen;
+    
+}
+
+
+.create-card-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 2vh;
+    background-color: white;
+    /* position: relative; */
+}
+
+.create-btn{
+    background-color: #30cfd0;
+    color: white;
+    border-radius: 10px;
+    justify-content: center;
+    align-items:center;
+    font-size: 16px;
+    transition-duration: 0.1;
+    border:none;
+    display: flex;
+    width: 10vh;
+    height: 4vh;
+    margin-top: 1vh;
+    cursor: pointer;
+}
+.create-btn:hover{
+    background-color: white;
+    color: #30cfd0;
+}
+
+.create-title{
+    display: flex;
+    text-align: center;
+
+}
